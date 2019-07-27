@@ -1,0 +1,20 @@
+{
+  "name": "PrivateLibrary",
+  "version": "1.0.0",
+  "description": "A Private Library for All Intelligent Organizations",
+  "author": "Ian",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.0.0",
+    "nodemon": "^1.18.9"
+  }
+}
