@@ -8,6 +8,17 @@
         </v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-flex sm3>
+        <v-text-field
+          v-model="keyword"
+          id="searchBox"
+          hide-details
+          single-line
+          label="search"
+          v-on:keyup.enter="submitSearch(keyword)"
+        ></v-text-field>
+      </v-flex>
+
       <v-menu
         left
         bottom
@@ -46,6 +57,7 @@
 export default {
   data () {
     return {
+        keyword: '',
       clipped: false,
       drawer: false,
       fixed: false,
@@ -66,6 +78,17 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js'
     }
+  },
+    methods: {
+      submitSearch(keyword) {
+          this.$router.push('/books/search/?keyword=' + keyword);
+    }
   }
 }
 </script>
+
+<style scoped>
+  #searchBox {
+    width: 10vw;
+  }
+</style>
