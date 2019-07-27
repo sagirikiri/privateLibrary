@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web:
+    build: ./web
+    ports:
+      - 8080:80
+    volumes:
+      - ./web/default.conf:/etc/nginx/conf.d/default.conf
+      - ./app/laravel/public:/var/www/public
+    depends_on:
+      - app
+  app:
+    build: ./app
+    volumes:
+      - ./app/laravel:/var/www/
+    tty: true
+    depends_on:
+      - db
+  db:
+    build: ./db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: PrivateLibraryDb
+    volumes:
+      - ./db/mysql_conf:/etc/mysql/conf.d
+      - ./db/mysql-data:/var/lib/mysql
