@@ -10,4 +10,3 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('api/v1/bookList', 'BookListController@getBookListMock');
