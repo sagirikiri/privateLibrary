@@ -27,3 +27,10 @@ services:
     volumes:
       - ./db/mysql_conf:/etc/mysql/conf.d
       - ./db/mysql-data:/var/lib/mysql
+
+  nuxt:
+    build: ./nuxt
+    ports:
+      - 3000:3000
+    tty: true
+    stdin_open: true
