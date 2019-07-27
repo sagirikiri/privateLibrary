@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-class ShopListController {
+class BookListController {
 
-    public function getShopListMock()
+    public function getBookListMock()
     {
         /**
          * borrowing_state true:貸し出せる, false:貸し出せない
