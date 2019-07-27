@@ -10,6 +10,8 @@
       :raised="raised"
       :width="width"
       :height="height"
+      :hover="hover"
+      v-on:click="getBook(id)"
     >
       <v-img
         class="white--text"
@@ -35,10 +37,16 @@
             raised: false,
             width: 344,
             height: undefined,
+            hover: true,
             items: [],
         }),
         name: "BookListItem",
-        props: ['name', 'author', 'cover_photo'],
+        props: ['id', 'name', 'author', 'cover_photo'],
+        methods: {
+            getBook: function(id) {
+                this.$router.push('/books/' + id);
+            }
+        }
     }
 </script>
 

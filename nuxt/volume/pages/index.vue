@@ -10,6 +10,7 @@
         <v-layout wrap>
           <BookListItem
             v-for="item in items"
+            :id="item.id"
             :name="item.name"
             :author="item.author"
             :cover_photo="item.cover_photo"
