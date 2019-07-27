@@ -25,6 +25,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@fortawesome/fontawesome-free/css/all.css',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -35,12 +36,13 @@ export default {
   ** Nuxt.js dev-modules
   */
   devModules: [
-    '@nuxtjs/vuetify',
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/vuetify',
+    '@nuxtjs/axios',
   ],
   /*
   ** vuetify module configuration
@@ -49,7 +51,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,

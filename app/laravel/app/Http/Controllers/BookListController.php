@@ -9,14 +9,17 @@ class BookListController {
         /**
          * borrowing_state true:貸し出せる, false:貸し出せない
          */
-        return response()->json([
-            'id' => '1',
-            'name' => 'かぐや様は告らせたい～天才たちの恋愛頭脳戦～',
-            'author' => '赤坂アカ',
-            'publication' => '2016/03/18',
-            'borrowing_state' => 'true',
-            'cover_photo' => 'kaguya1.jpg'
-
-        ],200,[],JSON_UNESCAPED_UNICODE);
+        $mocks = collect();
+        for($i = 1; $i < rand(10, 50); $i++) {
+            $mocks->push([
+                'id' => $i,
+                'name' => 'かぐや様は告らせたい～天才たちの恋愛頭脳戦～',
+                'author' => '赤坂アカ',
+                'publication' => '2016/03/18',
+                'borrowing_state' => 'true',
+                'cover_photo' => 'https://unsplash.it/150/300?image='.rand(1, 80)
+            ]);
+        }
+        return response()->json(['data' => $mocks]);
     }
 }
