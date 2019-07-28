@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\UseCase\BookList;
+
 class BookListController {
 
     public function getBookListMock()
@@ -21,5 +23,14 @@ class BookListController {
             ]);
         }
         return response()->json(['data' => $mocks]);
+    }
+
+    public function getBookList()
+    {
+        $bookList = new BookList();
+
+        $data = $bookList->getData();
+
+        return response()->json(['data' => $data]);
     }
 }
