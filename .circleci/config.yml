@@ -5,11 +5,11 @@
 version: 2
 jobs:
   deploy:
-    machine:
+      working_directory: ~/home/ec2-user/privateLibrary
       image: circleci/classic:edge
     branches:
       only:
-        - making_circliCI
+        - making_circleCI
     steps:
       - checkout
       #EC2にSSH接続し、デプロイをする。
