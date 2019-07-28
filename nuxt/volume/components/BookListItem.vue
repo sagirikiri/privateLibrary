@@ -11,16 +11,16 @@
       :width="width"
       :height="height"
       :hover="hover"
-      v-on:click="getBook(id)"
+      v-on:click="getBook(item.id)"
     >
       <v-img
         class="white--text"
         height="200px"
-        :src=cover_photo
+        :src="item.cover_photo"
       >
       </v-img>
-      <v-card-title>{{name}}</v-card-title>
-      <v-card-text>{{author}}</v-card-text>
+      <v-card-title>{{item.name}}</v-card-title>
+      <v-card-text>{{item.author}}</v-card-text>
     </v-card>
   </v-flex>
 </template>
@@ -38,10 +38,9 @@
             width: 344,
             height: undefined,
             hover: true,
-            items: [],
         }),
         name: "BookListItem",
-        props: ['id', 'name', 'author', 'cover_photo'],
+        props: {'item':Object},
         methods: {
             getBook: function(id) {
                 this.$router.push('/books/' + id);
