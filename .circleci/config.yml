@@ -7,9 +7,14 @@ jobs:
   deploy:
     machine:
       image: circleci/classic:edge
+    branches:
+      only:
+        - master
     steps:
       - checkout
       #EC2にSSH接続し、デプロイをする。
+      - add_ssh_keys:
+        fingerprints:
+          - "67:81:ed:9a:2c:ec:f9:94:c7:32:1e:09:f5:f6:65:f7"
       - run:
-          add_ssh_keys:
-          - run: ssh ${USER_NAME}@${HOST_NAME} 'cd privateLibrary && git pull && docker-compose -f docker-compose.yml restart && docker-exec -it privatelibrary_app_1 sh && php artisan migrate:refresh'
+          command: ssh ${USER_NAME}@${HOST_NAME} 'cd privateLibrary && git pull && docker-compose -f docker-compose.yml restart && docker-exec -it privatelibrary_app_1 sh && php artisan migrate:refresh'
