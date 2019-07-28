@@ -4,14 +4,12 @@
 #
 version: 2
 jobs:
-  build:
-   image: circleci/classic:edge
   deploy:
     machine:
       image: circleci/classic:edge
     branches:
       only:
-        - master
+        - making_circliCI
     steps:
       - checkout
       #EC2にSSH接続し、デプロイをする。
