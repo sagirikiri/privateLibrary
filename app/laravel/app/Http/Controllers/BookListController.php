@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\UseCase\BookList;
+use App\UseCase\getBookList;
 
 class BookListController {
 
@@ -27,7 +27,7 @@ class BookListController {
 
     public function getBookList()
     {
-        $bookList = new BookList();
+        $bookList = new getBookList();
 
         $data = $bookList->getData();
 

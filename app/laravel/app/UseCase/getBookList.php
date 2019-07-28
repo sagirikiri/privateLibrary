@@ -4,11 +4,13 @@ namespace App\UseCase;
 
 use App\Models\Book;
 
-class BookList
+class getBookList
 {
     public function getData()
     {
         $books = Book::all();
+
+        $borrowingState = new getBorrowingState();
 
         $data = collect();
         foreach ($books as $book) {
@@ -17,7 +19,7 @@ class BookList
                 'name' => $book->name,
                 'author' => $book->author,
                 'publication' => $book->publication,
-                'borrowing_state' => true,
+                'borrowing_state' => $borrowingState->getState($book),
                 'cover_photo' => $book->cover_photo,
             ]);
         }
