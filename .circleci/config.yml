@@ -4,6 +4,8 @@
 #
 version: 2
 jobs:
+  build:
+   image: circleci/classic:edge
   deploy:
     machine:
       image: circleci/classic:edge
