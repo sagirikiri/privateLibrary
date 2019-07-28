@@ -24,12 +24,13 @@
 import BookListItem from "../components/BookListItem";
 export default {
     components: {BookListItem},
-    async asyncData({ app }) {
-      const url = 'http://' + window.location.hostname + ':8080/api/v1/bookList';
-      const response = await app.$axios.$get(url);
-      return {
-          items: response.data
-      }
+    computed: {
+        items: function() {
+            return this.$store.state.shopList;
+        }
+    },
+    created() {
+        this.$store.dispatch('getShopList')
     }
 }
 </script>

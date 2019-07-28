@@ -1,14 +1,25 @@
 <template>
   <v-app>
 
-    <v-app-bar app>
+    <v-app-bar
+      app>
       <v-toolbar-title>
-        <v-btn text href="/">
-          <i class="fas fa-book-open"></i> Tosho
+        <v-btn
+          text
+          href="/">
+          <i
+            class="fas fa-book-open"></i>
+          Tosho
         </v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-flex sm3>
+      <v-btn
+        @click="up"
+      >
+        {{counter}}
+      </v-btn>
+      <v-flex
+        sm3>
         <v-text-field
           v-model="keyword"
           id="searchBox"
@@ -23,8 +34,12 @@
         left
         bottom
       >
-        <template v-slot:activator="{ on }">
-          <v-btn icon v-on="on" height="48">
+        <template
+          v-slot:activator="{ on }">
+          <v-btn
+            icon
+            v-on="on"
+            height="48">
             <i class="fas fa-user fa-2x"></i>
           </v-btn>
         </template>
@@ -35,7 +50,10 @@
             :key="n"
             @click="() => {}"
           >
-            <v-list-item-title>Option {{ n }}</v-list-item-title>
+            <v-list-item-title>
+              Option
+              {{n}}
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -43,7 +61,7 @@
 
     <v-content>
       <v-container>
-        <nuxt />
+        <nuxt/>
       </v-container>
     </v-content>
 
@@ -54,40 +72,49 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-        keyword: '',
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+    export default {
+        data() {
+            return {
+                keyword: '',
+                clipped: false,
+                drawer: false,
+                fixed: false,
+                items: [
+                    {
+                        icon: 'mdi-apps',
+                        title: 'Welcome',
+                        to: '/'
+                    },
+                    {
+                        icon: 'mdi-chart-bubble',
+                        title: 'Inspire',
+                        to: '/inspire'
+                    }
+                ],
+                miniVariant: false,
+                right: true,
+                rightDrawer: false,
+                title: 'Vuetify.js'
+            }
         },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+        computed: {
+            counter () {
+                return this.$store.state.counter;
+            }
+        },
+        methods: {
+            up: function() {
+                this.$store.commit('increment');
+            },
+            submitSearch(keyword) {
+                this.$router.push('/books/search/?keyword=' + keyword);
+            }
         }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
     }
-  },
-    methods: {
-      submitSearch(keyword) {
-          this.$router.push('/books/search/?keyword=' + keyword);
-    }
-  }
-}
 </script>
 
-<style scoped>
+<style
+  scoped>
   #searchBox {
     width: 10vw;
   }

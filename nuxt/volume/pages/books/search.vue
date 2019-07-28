@@ -22,18 +22,13 @@
 <script>
     import BookListItem from "../../components/BookListItem";
     export default {
-        data: function () {
-            return {
-                keyword: this.$route.query.keyword
-            }
+        computed: {
+            keyword: that => that.$route.query.keyword,
+            items: vm => vm.$store.state.shopList
         },
         components: {BookListItem},
-        async asyncData({ app }) {
-            const url = 'http://' + window.location.hostname + ':8080/api/v1/bookList';
-            const response = await app.$axios.$get(url);
-            return {
-                items: response.data
-            }
+        created() {
+            this.$store.dispatch('searchShopList', this.keyword)
         }
     }
 </script>
