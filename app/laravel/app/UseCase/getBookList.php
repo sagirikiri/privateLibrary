@@ -6,6 +6,11 @@ use App\Models\Book;
 
 class getBookList
 {
+    /**
+     * 書籍一覧ページにJSONデータを渡す
+     *
+     * @return \Illuminate\Support\Collection
+     */
     public function getData()
     {
         $books = Book::all();
