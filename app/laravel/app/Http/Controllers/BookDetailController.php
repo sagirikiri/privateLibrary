@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class BookDetailController
 {
-    public function getBookDetail(Request $request, $book_id)
+    public function getBookDetailMock(Request $request, $book_id)
     {
         return response()->json([
             'id' => $book_id,

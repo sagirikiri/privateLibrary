@@ -14,4 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/v1/bookList', 'BookListController@getBookList');
-Route::get('/v1/bookDetail/{book_id}', 'BookDetailController@getBookDetail');
+Route::get('/v1/bookDetail/{book_id}', 'BookDetailController@getBookDetailMock');
