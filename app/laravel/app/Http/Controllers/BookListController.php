@@ -25,6 +25,11 @@ class BookListController {
         return response()->json(['data' => $mocks]);
     }
 
+    /**
+     * 本のリストを取得する
+     *
+     * @return mixed
+     */
     public function getBookList()
     {
         $bookList = new getBookList();
