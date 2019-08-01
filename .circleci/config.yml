@@ -5,8 +5,7 @@
 version: 2
 jobs:
   deploy:
-      machine:
-      image: circleci/classic:edge
+      machine: true
       steps:
         - checkout
         #EC2にSSH接続し、デプロイをする。
