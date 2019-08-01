@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\UseCase\getBookDetail;
 use Illuminate\Http\Request;
 
 class BookDetailController
