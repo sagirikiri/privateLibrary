@@ -5,11 +5,10 @@
 version: 2
 jobs:
   deploy:
-      working_directory: ~/home/ec2-user/privateLibrary
+      machine:
       image: circleci/classic:edge
       steps:
         - checkout
         #EC2にSSH接続し、デプロイをする。
         - add_ssh_keys:
-        - run:
-            command: ssh ${USER_NAME}@${HOST_NAME} 'cd privateLibrary && git pull && docker-compose -f docker-compose.yml restart && docker-exec -it privatelibrary_app_1 sh && php artisan migrate:refresh'
+        - run: ssh ${USER_NAME}@${HOST_NAME} 'cd privateLibrary && git pull && docker-compose -f docker-compose.yml restart && docker-exec -it privatelibrary_app_1 sh && php artisan migrate:refresh'
