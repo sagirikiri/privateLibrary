@@ -34,8 +34,6 @@ class BookListController {
     {
         $bookList = new getBookList();
 
-        $data = $bookList->getData();
-
-        return response()->json(['data' => $data]);
+        return response()->json(['data' => $bookList->getData()]);
     }
 }

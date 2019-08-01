@@ -20,4 +20,12 @@ class BookDetailController
         ];
         return response()->json(['data' => $mock]);
     }
+
+    public function getBookDetail(Request $request, $book_id)
+    {
+        $bookDetail = new getBookDetail();
+
+        return response()->json(['data' => $bookDetail->getData()]);
+
+    }
 }
