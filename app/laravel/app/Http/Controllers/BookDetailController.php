@@ -22,6 +22,13 @@ class BookDetailController
         return response()->json(['data' => $mock]);
     }
 
+    /**
+     * 書籍詳細ページに必要なデータをJSON形式で取得する
+     *
+     * @param Request $request
+     * @param $book_id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getBookDetail(Request $request, $book_id)
     {
         $bookDetail = new getBookDetail();
