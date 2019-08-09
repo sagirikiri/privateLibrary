@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class BookDetailController
 {
+    /**
+     * 書斎詳細ページに必要なデータのMock
+     *
+     * @param Request $request
+     * @param $book_id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getBookDetailMock(Request $request, $book_id)
     {
         $mock = [
