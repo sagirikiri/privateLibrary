@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBorrowingInformationsTable extends Migration
+class CreateBorrowingInformationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBorrowingInformationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('borrowing_informations', function (Blueprint $table) {
+        Schema::create('borrowing_information', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('book_id');
             $table->unsignedBigInteger('user_id');
@@ -31,6 +31,6 @@ class CreateBorrowingInformationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('borrowing_informations');
+        Schema::dropIfExists('borrowing_information');
     }
 }

@@ -4,7 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BorrowingInformations extends Model
+/**
+ *
+ *
+ * Class BorrowingInformation
+ * @package App\Models
+ */
+class BorrowingInformation extends Model
 {
     protected $guarded = [
         'id',

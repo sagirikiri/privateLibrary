@@ -3,7 +3,7 @@
 namespace App\UseCase;
 
 use App\Models\Book;
-use App\Models\BorrowingInformations;
+use App\Models\BorrowingInformation;
 
 class getBorrowingState
 {
@@ -13,9 +13,9 @@ class getBorrowingState
      */
     public function getState(Book $book)
     {
-        $borrowingInformations = new BorrowingInformations();
+        $borrowingInformation = new BorrowingInformation();
 
-        $countBorrowing = $borrowingInformations->query()->where('book_id', $book->id)->count();
+        $countBorrowing = $borrowingInformation->query()->where('book_id', $book->id)->count();
 
         return ($book->number - $countBorrowing) > 0 ? true : false;
     }
