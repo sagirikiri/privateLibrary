@@ -14,7 +14,7 @@
     "@fortawesome/fontawesome-free": "^5.9.0",
     "@mdi/font": "^3.8.95",
     "@nuxtjs/axios": "^5.5.4",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.15.8"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.0.0",
